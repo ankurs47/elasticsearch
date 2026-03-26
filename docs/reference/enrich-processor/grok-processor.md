@@ -17,20 +17,20 @@ If you need help building patterns to match your logs, you will find the [Grok D
 
 $$$grok-options$$$
 
-| Name                  | Required | Default | Description                                                                                                                                                                        |
-|-----------------------| --- | --- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `field`               | yes | - | The field to use for grok expression parsing                                                                                                                                       |
-| `patterns`            | yes | - | An ordered list of grok expression to match and extract named captures with. Returns on the first expression in the list that matches.                                             |
+| Name | Required | Default | Description |
+| --- | --- | --- | --- |
+| `field` | yes | - | The field to use for grok expression parsing |
+| `patterns` | yes | - | An ordered list of grok expression to match and extract named captures with. Returns on the first expression in the list that matches. |
 | `pattern_definitions` | no | - | A map of pattern-name and pattern tuples defining custom patterns to be used by the current processor. Patterns matching existing names will override the pre-existing definition. |
-| `ecs_compatibility`   | no | `disabled` | Must be `disabled` or `v1`. If `v1`, the processor uses patterns with [Elastic Common Schema (ECS)](ecs://reference/ecs-field-reference.md) field names.                           |
-| `trace_match`         | no | false | when true, `_ingest._grok_match_index` will be inserted into your matched document’s metadata with the index into the pattern found in `patterns` that matched.                    |
-| `ignore_missing`      | no | false | If `true` and `field` does not exist or is `null`, the processor quietly exits without modifying the document                                                                      |
-| `validate_only`       | no | false | If `true`, the processor does matching but does not extract structured fields                                                                                                      |
-| `description`         | no | - | Description of the processor. Useful for describing the purpose of the processor or its configuration.                                                                             |
-| `if`                  | no | - | Conditionally execute the processor. See [Conditionally run a processor](docs-content://manage-data/ingest/transform-enrich/ingest-pipelines.md#conditionally-run-processor).      |
-| `ignore_failure`      | no | `false` | Ignore failures for the processor. See [Handling pipeline failures](docs-content://manage-data/ingest/transform-enrich/ingest-pipelines.md#handling-pipeline-failures).            |
-| `on_failure`          | no | - | Handle failures for the processor. See [Handling pipeline failures](docs-content://manage-data/ingest/transform-enrich/ingest-pipelines.md#handling-pipeline-failures).            |
-| `tag`                 | no | - | Identifier for the processor. Useful for debugging and metrics.                                                                                                                    |
+| `ecs_compatibility` | no | `disabled` | Must be `disabled` or `v1`. If `v1`, the processor uses patterns with [Elastic Common Schema (ECS)](ecs://reference/ecs-field-reference.md) field names. |
+| `trace_match` | no | false | when true, `_ingest._grok_match_index` will be inserted into your matched document’s metadata with the index into the pattern found in `patterns` that matched. |
+| `ignore_missing` | no | false | If `true` and `field` does not exist or is `null`, the processor quietly exits without modifying the document |
+| `validate_only` | no | false | If `true`, the processor does matching but does not extract structured fields |
+| `description` | no | - | Description of the processor. Useful for describing the purpose of the processor or its configuration. |
+| `if` | no | - | Conditionally execute the processor. See [Conditionally run a processor](docs-content://manage-data/ingest/transform-enrich/ingest-pipelines.md#conditionally-run-processor). |
+| `ignore_failure` | no | `false` | Ignore failures for the processor. See [Handling pipeline failures](docs-content://manage-data/ingest/transform-enrich/ingest-pipelines.md#handling-pipeline-failures). |
+| `on_failure` | no | - | Handle failures for the processor. See [Handling pipeline failures](docs-content://manage-data/ingest/transform-enrich/ingest-pipelines.md#handling-pipeline-failures). |
+| `tag` | no | - | Identifier for the processor. Useful for debugging and metrics. |
 
 Here is an example of using the provided patterns to extract out and name structured fields from a string field in a document.
 
