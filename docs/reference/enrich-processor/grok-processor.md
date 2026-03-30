@@ -25,7 +25,7 @@ $$$grok-options$$$
 | `ecs_compatibility` | no | `disabled` | Must be `disabled` or `v1`. If `v1`, the processor uses patterns with [Elastic Common Schema (ECS)](ecs://reference/ecs-field-reference.md) field names. |
 | `trace_match` | no | false | when true, `_ingest._grok_match_index` will be inserted into your matched document’s metadata with the index into the pattern found in `patterns` that matched. |
 | `ignore_missing` | no | false | If `true` and `field` does not exist or is `null`, the processor quietly exits without modifying the document |
-| `validate_only` | no | false | If `true`, the processor does matching but does not extract structured fields |
+| `validate_only` {applies_to}`stack: ga 9.4` | no | false | If `true`, the processor does matching but does not extract structured fields |
 | `description` | no | - | Description of the processor. Useful for describing the purpose of the processor or its configuration. |
 | `if` | no | - | Conditionally execute the processor. See [Conditionally run a processor](docs-content://manage-data/ingest/transform-enrich/ingest-pipelines.md#conditionally-run-processor). |
 | `ignore_failure` | no | `false` | Ignore failures for the processor. See [Handling pipeline failures](docs-content://manage-data/ingest/transform-enrich/ingest-pipelines.md#handling-pipeline-failures). |
